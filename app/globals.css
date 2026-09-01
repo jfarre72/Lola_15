@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #f7f3ee;
+  --gold: #d4af67;
+  --golddark: #b89445;
+  --ink: #252525;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scroll suave para la navegación por secciones */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ocultar scrollbar de forma discreta manteniendo el scroll */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 103, 0.4) transparent;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(120deg, #e6c68f 0%, #d4af67 40%, #b89445 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(184, 148, 69, 0.7),
+    transparent
+  );
+}
+
+/* Respeta usuarios con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
