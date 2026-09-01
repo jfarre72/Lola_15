@@ -53,6 +53,16 @@ export default function EnvelopeIntro({ onOpen }: Props) {
           />
           <Sparkles count={22} />
 
+          {/* Marco dorado sutil de la escena */}
+          <div
+            className="pointer-events-none absolute z-10"
+            style={{
+              inset: "18px",
+              border: "1px solid rgba(184,148,69,0.35)",
+              borderRadius: "4px",
+            }}
+          />
+
           {/* Sobre */}
           <motion.div
             className="relative z-10"
@@ -64,14 +74,18 @@ export default function EnvelopeIntro({ onOpen }: Props) {
           </motion.div>
 
           {/* Indicación */}
-          <motion.p
-            className="relative z-10 mt-10 text-[0.7rem] font-sans font-medium uppercase tracking-widest2 text-golddark"
+          <motion.div
+            className="relative z-10 mt-10 flex items-center gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: stage === "closed" ? 1 : 0 }}
             transition={{ delay: 1.4, duration: 1 }}
           >
-            Tocá el sello para abrir
-          </motion.p>
+            <span className="h-px w-6 bg-gold/50" />
+            <p className="text-[0.7rem] font-sans font-medium uppercase tracking-widest2 text-golddark">
+              Tocá el sello para abrir
+            </p>
+            <span className="h-px w-6 bg-gold/50" />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
@@ -107,40 +121,49 @@ function Envelope({
         }}
       />
 
-      {/* Tarjeta que sale */}
+      {/* Tarjeta — su encabezado asoma sobre el sobre; el resto queda contenido */}
       <motion.div
-        className="absolute left-1/2 top-1/2 z-10 flex items-center justify-center rounded-[6px] bg-white px-5 text-center"
+        className="absolute left-1/2 top-1/2 z-10 flex flex-col items-center rounded-[6px] bg-white px-6 text-center"
         style={{
-          width: "82%",
+          width: "84%",
           height: "128%",
           x: "-50%",
-          boxShadow: "0 18px 40px -18px rgba(80,60,30,0.4)",
-          border: "1px solid rgba(184,148,69,0.28)",
+          boxShadow:
+            "0 20px 45px -18px rgba(80,60,30,0.45), inset 0 0 0 1px rgba(255,255,255,0.6)",
+          border: "1px solid rgba(184,148,69,0.35)",
+          backgroundImage: "linear-gradient(180deg, #ffffff 0%, #fffdf8 100%)",
         }}
-        initial={{ y: "-42%" }}
+        initial={{ y: "-65%" }}
         animate={
-          opening ? { y: "-96%", rotate: -1.5 } : { y: "-42%", rotate: 0 }
+          opening ? { y: "-122%", rotate: -1.5 } : { y: "-65%", rotate: 0 }
         }
         transition={{ duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="py-6">
-          <p className="mb-4 font-serif text-[1.15rem] italic text-golddark">
+        {/* Marco fino dorado interior de la tarjeta */}
+        <div
+          className="pointer-events-none absolute rounded-[3px]"
+          style={{ inset: 8, border: "1px solid rgba(184,148,69,0.3)" }}
+        />
+
+        {/* Encabezado visible (asoma por encima de la solapa) */}
+        <div className="relative z-10 pt-3">
+          <p className="font-sans text-[0.58rem] uppercase tracking-widest2 text-golddark">
             {invitation.event}
           </p>
-          <div className="mx-auto mb-4 h-px w-16 bg-gold/50" />
-          <div className="space-y-[0.35rem] font-cormorant text-[0.92rem] leading-snug text-ink/80">
-            {invitation.cardMessage.map((line, i) =>
-              line === "" ? (
-                <div key={i} className="h-2" />
-              ) : (
-                <p key={i}>{line}</p>
-              )
-            )}
+          <div className="my-2 flex items-center justify-center gap-2">
+            <span className="h-px w-8 bg-gold/50" />
+            <span className="text-[0.55rem] text-gold">✦</span>
+            <span className="h-px w-8 bg-gold/50" />
           </div>
-          <p className="mt-5 font-script text-3xl text-golddark">
-            {invitation.nick}
+          <p className="font-script text-[2.6rem] leading-none text-golddark">
+            {invitation.name}
           </p>
         </div>
+
+        {/* Filigrana muy sutil en el centro (se ve tras la abertura en V) */}
+        <p className="relative z-10 mt-10 font-cormorant text-sm italic tracking-wide text-ink/30">
+          Estás invitada
+        </p>
       </motion.div>
 
       {/* Frente del sobre (tapa el borde inferior de la tarjeta) */}
@@ -151,27 +174,64 @@ function Envelope({
           background: "linear-gradient(160deg, #fdf9f2 0%, #efe6d6 100%)",
           borderBottomLeftRadius: 10,
           borderBottomRightRadius: 10,
-          border: "1px solid rgba(184,148,69,0.25)",
+          border: "1px solid rgba(184,148,69,0.3)",
           borderTop: "none",
           clipPath: "polygon(0 22%, 50% 0, 100% 22%, 100% 100%, 0 100%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.7)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -20px 40px -20px rgba(120,90,20,0.15)",
         }}
       />
 
-      {/* Solapa superior que se levanta */}
+      {/* Filetes dorados sobre la V del frente (detalle premium) */}
+      <svg
+        className="absolute inset-0 z-20 h-full w-full"
+        viewBox="0 0 100 70"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path
+          d="M0 15.4 L50 0.7 L100 15.4"
+          fill="none"
+          stroke="rgba(184,148,69,0.55)"
+          strokeWidth="0.4"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+
+      {/* Solapa superior que se levanta (con forro dorado interior) */}
       <motion.div
         className="absolute inset-x-0 top-0 z-30 origin-top"
         style={{
           height: "58%",
           transformStyle: "preserve-3d",
-          background: "linear-gradient(160deg, #fffdf9 0%, #f0e7d7 100%)",
           clipPath: "polygon(0 0, 100% 0, 50% 100%)",
           borderRadius: "10px 10px 0 0",
-          filter: "drop-shadow(0 4px 6px rgba(80,60,30,0.15))",
+          filter: "drop-shadow(0 5px 8px rgba(80,60,30,0.18))",
         }}
         animate={{ rotateX: opening ? -175 : 0 }}
         transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
-      />
+      >
+        {/* Cara exterior */}
+        <div
+          className="absolute inset-0"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+            background: "linear-gradient(160deg, #fffdf9 0%, #f0e7d7 100%)",
+            backfaceVisibility: "hidden",
+          }}
+        />
+        {/* Forro interior dorado (se ve al abrir) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+            background:
+              "linear-gradient(160deg, #e7c78d 0%, #d4af67 55%, #b89445 100%)",
+            transform: "rotateX(180deg)",
+            backfaceVisibility: "hidden",
+          }}
+        />
+      </motion.div>
 
       {/* Sello de lacre dorado (clickeable) */}
       <motion.button
@@ -180,8 +240,8 @@ function Envelope({
         aria-label="Abrir invitación"
         className="absolute left-1/2 top-1/2 z-40 flex items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         style={{
-          width: "min(20vw, 88px)",
-          height: "min(20vw, 88px)",
+          width: "min(22vw, 96px)",
+          height: "min(22vw, 96px)",
           x: "-50%",
           y: "-50%",
           cursor: opening ? "default" : "pointer",
@@ -200,12 +260,14 @@ function Seal({ initial }: { initial: string }) {
   const reduce = useReducedMotion();
   return (
     <motion.div
-      className="relative flex h-full w-full items-center justify-center rounded-full"
+      className="relative flex h-full w-full items-center justify-center"
       style={{
+        // Borde orgánico e irregular para simular una gota de lacre
+        borderRadius: "47% 53% 52% 48% / 49% 51% 49% 51%",
         background:
-          "radial-gradient(circle at 35% 30%, #e7c78d 0%, #d4af67 40%, #b89445 75%, #9c7c33 100%)",
+          "radial-gradient(circle at 34% 28%, #ecca8f 0%, #d4af67 42%, #b89445 74%, #916f2c 100%)",
         boxShadow:
-          "0 6px 16px -4px rgba(120,90,20,0.55), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(90,65,15,0.5)",
+          "0 8px 20px -6px rgba(120,90,20,0.6), inset 0 2px 5px rgba(255,255,255,0.45), inset 0 -4px 8px rgba(80,58,12,0.55)",
       }}
       animate={
         reduce
@@ -217,12 +279,21 @@ function Seal({ initial }: { initial: string }) {
       }
       transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
     >
-      {/* Borde festoneado sutil */}
+      {/* Anillo grabado exterior */}
       <div
-        className="absolute inset-0 rounded-full"
+        className="absolute rounded-full"
         style={{
-          border: "2px dashed rgba(120,90,20,0.35)",
-          margin: 5,
+          inset: 6,
+          border: "1.5px solid rgba(120,90,20,0.4)",
+          boxShadow: "inset 0 0 4px rgba(80,58,12,0.4)",
+        }}
+      />
+      {/* Puntería de anillo interior punteado */}
+      <div
+        className="absolute rounded-full"
+        style={{
+          inset: 11,
+          border: "1px dashed rgba(255,245,220,0.5)",
         }}
       />
       {/* Brillo que recorre el sello cada algunos segundos */}
