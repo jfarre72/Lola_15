@@ -49,12 +49,7 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, Props>(function MusicPlayer(
 
   return (
     <>
-      <audio ref={audioRef} loop preload="auto">
-        {/* Preferencia por mp3 (más liviano); wav como respaldo.
-            Subí tu canción a /public/audio como song.mp3 y toma ese. */}
-        <source src="/audio/song.mp3" type="audio/mpeg" />
-        <source src={invitation.audioSrc} type="audio/wav" />
-      </audio>
+      <audio ref={audioRef} src={invitation.audioSrc} loop preload="auto" />
       <AnimatePresence>
         {visible && (
           <motion.button
