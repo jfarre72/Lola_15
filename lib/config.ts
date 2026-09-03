@@ -42,7 +42,7 @@ export const invitation = {
     message: "Hola! Confirmo mi asistencia a los XV de Lola 💕",
   },
   // Audio placeholder — reemplazar por la canción real.
-  audioSrc: "/audio/song.wav",
+  audioSrc: "/audio/song.mp3",
   cardMessage: [
     "Me haría mucha ilusión que me acompañes",
     "a celebrar mis XV años.",

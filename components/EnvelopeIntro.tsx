@@ -110,14 +110,14 @@ function Envelope({
         perspective: 1400,
       }}
     >
-      {/* Cuerpo del sobre (parte trasera) */}
+      {/* Cuerpo del sobre (parte trasera) — rosa marfil */}
       <div
         className="absolute inset-0 rounded-[10px]"
         style={{
-          background: "linear-gradient(160deg, #fffdf9 0%, #f3ece0 100%)",
+          background: "linear-gradient(160deg, #fdf0f3 0%, #f2d9e0 100%)",
           boxShadow:
-            "0 30px 60px -20px rgba(80,60,30,0.35), inset 0 1px 0 rgba(255,255,255,0.8)",
-          border: "1px solid rgba(184,148,69,0.25)",
+            "0 30px 60px -20px rgba(150,90,110,0.35), inset 0 1px 0 rgba(255,255,255,0.85)",
+          border: "1px solid rgba(200,150,170,0.4)",
         }}
       />
 
@@ -126,16 +126,16 @@ function Envelope({
         className="absolute left-1/2 top-1/2 z-10 flex flex-col items-center rounded-[6px] bg-white px-6 text-center"
         style={{
           width: "84%",
-          height: "128%",
+          height: "96%",
           x: "-50%",
           boxShadow:
             "0 20px 45px -18px rgba(80,60,30,0.45), inset 0 0 0 1px rgba(255,255,255,0.6)",
           border: "1px solid rgba(184,148,69,0.35)",
           backgroundImage: "linear-gradient(180deg, #ffffff 0%, #fffdf8 100%)",
         }}
-        initial={{ y: "-65%" }}
+        initial={{ y: "-50%" }}
         animate={
-          opening ? { y: "-122%", rotate: -1.5 } : { y: "-65%", rotate: 0 }
+          opening ? { y: "-120%", rotate: -1.5 } : { y: "-50%", rotate: 0 }
         }
         transition={{ duration: 1.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
@@ -166,33 +166,37 @@ function Envelope({
         </p>
       </motion.div>
 
-      {/* Frente del sobre (tapa el borde inferior de la tarjeta) */}
+      {/* Frente del sobre — panel completo (sobre cerrado, sin huecos) */}
       <div
-        className="absolute inset-x-0 bottom-0 z-20 rounded-b-[10px]"
+        className="absolute inset-0 z-20 rounded-[10px]"
         style={{
-          height: "62%",
-          background: "linear-gradient(160deg, #fdf9f2 0%, #efe6d6 100%)",
-          borderBottomLeftRadius: 10,
-          borderBottomRightRadius: 10,
-          border: "1px solid rgba(184,148,69,0.3)",
-          borderTop: "none",
-          clipPath: "polygon(0 22%, 50% 0, 100% 22%, 100% 100%, 0 100%)",
+          background: "linear-gradient(160deg, #fbeaef 0%, #edccd6 100%)",
+          border: "1px solid rgba(200,150,170,0.4)",
           boxShadow:
-            "inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -20px 40px -20px rgba(120,90,20,0.15)",
+            "inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -24px 44px -24px rgba(150,90,110,0.2)",
         }}
       />
 
-      {/* Filetes dorados sobre la V del frente (detalle premium) */}
+      {/* Costuras del sobre: V superior (solapa) y pliegues inferiores */}
       <svg
         className="absolute inset-0 z-20 h-full w-full"
         viewBox="0 0 100 70"
         preserveAspectRatio="none"
         aria-hidden
       >
+        {/* borde inferior de la solapa */}
         <path
-          d="M0 15.4 L50 0.7 L100 15.4"
+          d="M0 1 L50 40 L100 1"
           fill="none"
-          stroke="rgba(184,148,69,0.55)"
+          stroke="rgba(184,148,69,0.35)"
+          strokeWidth="0.4"
+          vectorEffect="non-scaling-stroke"
+        />
+        {/* pliegues laterales que suben hacia el centro */}
+        <path
+          d="M0 6 L50 40 L100 6 M0 69 L50 40 L100 69"
+          fill="none"
+          stroke="rgba(150,90,110,0.18)"
           strokeWidth="0.4"
           vectorEffect="non-scaling-stroke"
         />
@@ -206,7 +210,7 @@ function Envelope({
           transformStyle: "preserve-3d",
           clipPath: "polygon(0 0, 100% 0, 50% 100%)",
           borderRadius: "10px 10px 0 0",
-          filter: "drop-shadow(0 5px 8px rgba(80,60,30,0.18))",
+          filter: "drop-shadow(0 5px 8px rgba(150,90,110,0.2))",
         }}
         animate={{ rotateX: opening ? -175 : 0 }}
         transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
@@ -216,7 +220,7 @@ function Envelope({
           className="absolute inset-0"
           style={{
             clipPath: "polygon(0 0, 100% 0, 50% 100%)",
-            background: "linear-gradient(160deg, #fffdf9 0%, #f0e7d7 100%)",
+            background: "linear-gradient(160deg, #fdeef2 0%, #f0d2dc 100%)",
             backfaceVisibility: "hidden",
           }}
         />
@@ -260,7 +264,7 @@ function Seal({ initial }: { initial: string }) {
   const reduce = useReducedMotion();
   return (
     <motion.div
-      className="relative flex h-full w-full items-center justify-center"
+      className="relative flex h-full w-full items-center justify-center overflow-hidden"
       style={{
         // Borde orgánico e irregular para simular una gota de lacre
         borderRadius: "47% 53% 52% 48% / 49% 51% 49% 51%",
