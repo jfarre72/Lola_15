@@ -52,6 +52,18 @@ export default function DressCodeSection() {
           Preparate para una noche especial
         </p>
       </Reveal>
+
+      <Reveal delay={0.65}>
+        <div className="mx-auto mt-10 max-w-xs text-center">
+          <div className="mx-auto mb-4 h-px w-12 bg-gold/40" />
+          <p className="font-sans text-[0.62rem] uppercase tracking-widest2 text-golddark">
+            Colores reservados
+          </p>
+          <p className="mt-2 font-cormorant text-lg text-ink/70">
+            {invitation.forbiddenColors}
+          </p>
+        </div>
+      </Reveal>
     </section>
   );
 }

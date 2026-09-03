@@ -34,8 +34,8 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Mis XV · Catalina",
-  description: "Te invito a celebrar mis XV años · 14 · 11 · 2026",
+  title: "Mis XV · Lola",
+  description: "Te invito a celebrar mis XV años · 31 · 10 · 2026",
 };
 
 export const viewport: Viewport = {

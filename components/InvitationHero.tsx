@@ -62,11 +62,13 @@ export default function InvitationHero() {
           {invitation.name}
         </motion.h1>
 
+        <motion.div variants={item} className="mx-auto my-8 h-px w-14 bg-gold/60" />
+
         <motion.p
           variants={item}
-          className="mt-8 font-cormorant text-2xl tracking-[0.3em] text-ink/70 sm:text-3xl"
+          className="mx-auto max-w-md font-cormorant text-xl italic leading-relaxed text-ink/70 sm:text-2xl"
         >
-          {invitation.displayDate}
+          {invitation.intro}
         </motion.p>
       </motion.div>
 

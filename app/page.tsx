@@ -9,6 +9,7 @@ import Countdown from "@/components/Countdown";
 import LocationSection from "@/components/LocationSection";
 import DressCodeSection from "@/components/DressCodeSection";
 import RSVPSection from "@/components/RSVPSection";
+import GiftSection from "@/components/GiftSection";
 import ClosingSection from "@/components/ClosingSection";
 import MusicPlayer, { MusicPlayerHandle } from "@/components/MusicPlayer";
 
@@ -38,6 +39,7 @@ export default function Home() {
         <LocationSection />
         <DressCodeSection />
         <RSVPSection />
+        <GiftSection />
         <ClosingSection />
       </motion.div>
 

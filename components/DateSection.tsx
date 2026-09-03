@@ -4,7 +4,7 @@ import Reveal from "./ui/Reveal";
 import { invitation } from "@/lib/config";
 
 export default function DateSection() {
-  const { day, monthName, year, time } = invitation.dateParts;
+  const { day, monthName, year, timeRange } = invitation.dateParts;
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
@@ -36,8 +36,8 @@ export default function DateSection() {
       </Reveal>
 
       <Reveal delay={0.55}>
-        <p className="mt-8 text-center font-sans text-lg tracking-[0.35em] text-ink">
-          {time} HS
+        <p className="mt-8 text-center font-sans text-base tracking-[0.3em] text-ink sm:text-lg">
+          {timeRange}
         </p>
       </Reveal>
 
