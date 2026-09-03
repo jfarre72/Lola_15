@@ -45,8 +45,9 @@ export const invitation = {
     phone: "5491126303381",
     message: "Hola! Confirmo mi asistencia a los XV de Lola 💕",
   },
-  // Audio placeholder — reemplazar por la canción real.
   audioSrc: "/audio/song.mp3",
+  // Segundo de inicio de la canción (1:06 = 66s) y loop desde ahí.
+  audioStartSec: 66,
   cardMessage: [
     "Me haría mucha ilusión que me acompañes",
     "a celebrar mis XV años.",
