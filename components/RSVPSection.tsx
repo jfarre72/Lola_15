@@ -1,7 +1,7 @@
 "use client";
 
 import Reveal from "./ui/Reveal";
-import { whatsappUrl } from "@/lib/config";
+import { invitation, whatsappUrl } from "@/lib/config";
 
 export default function RSVPSection() {
   return (
@@ -27,6 +27,12 @@ export default function RSVPSection() {
         >
           Confirmar asistencia
         </a>
+      </Reveal>
+
+      <Reveal delay={0.55}>
+        <p className="mt-6 text-center font-sans text-[0.62rem] uppercase tracking-widest2 text-golddark">
+          Confirmar antes del {invitation.rsvpDeadline}
+        </p>
       </Reveal>
     </section>
   );

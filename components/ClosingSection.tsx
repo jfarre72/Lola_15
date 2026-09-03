@@ -11,7 +11,7 @@ export default function ClosingSection() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 100% at 50% 100%, #ffffff 0%, #f7f3ee 55%, #ece4d5 100%)",
+            "radial-gradient(90% 70% at 50% 100%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%)",
         }}
       />
       <Sparkles count={20} />

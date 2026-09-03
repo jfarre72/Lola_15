@@ -41,7 +41,7 @@ export default function EnvelopeIntro({ onOpen }: Props) {
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(120% 90% at 50% 20%, #ffffff 0%, #f7f3ee 45%, #ece5da 100%)",
+                "radial-gradient(120% 90% at 50% 18%, #fbf7f8 0%, #efe9ec 42%, #e2dfe4 100%), radial-gradient(60% 45% at 20% 15%, rgba(242,223,229,0.6) 0%, rgba(242,223,229,0) 60%), radial-gradient(55% 45% at 85% 22%, rgba(214,217,224,0.55) 0%, rgba(214,217,224,0) 60%)",
             }}
           />
           <div

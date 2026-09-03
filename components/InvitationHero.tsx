@@ -23,19 +23,12 @@ export default function InvitationHero() {
 
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-6">
-      {/* Fondo con gradiente y textura suave */}
+      {/* Halo suave para dar profundidad sobre el fondo global */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(130% 100% at 50% 0%, #ffffff 0%, #f7f3ee 55%, #efe6d7 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-40 mix-blend-multiply"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E\")",
+            "radial-gradient(75% 55% at 50% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 70%)",
         }}
       />
       <Sparkles count={14} />
@@ -57,17 +50,12 @@ export default function InvitationHero() {
 
         <motion.h1
           variants={item}
-          className="text-gold-gradient font-serif text-6xl font-medium leading-none sm:text-8xl"
+          className="text-gold-gradient font-serif text-7xl font-medium leading-none sm:text-8xl"
         >
           {invitation.name}
         </motion.h1>
 
-        <motion.p
-          variants={item}
-          className="mt-8 font-cormorant text-2xl tracking-[0.3em] text-ink/70 sm:text-3xl"
-        >
-          {invitation.displayDate}
-        </motion.p>
+        <motion.div variants={item} className="mx-auto mt-8 h-px w-14 bg-gold/60" />
       </motion.div>
 
       {/* Indicación de scroll */}
