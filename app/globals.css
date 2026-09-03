@@ -74,6 +74,10 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* Evita que se corten las colas (g, y, j) en títulos con degradado */
+  display: inline-block;
+  line-height: 1.15;
+  padding-bottom: 0.12em;
 }
 
 .hairline {
