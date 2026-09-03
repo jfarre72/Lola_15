@@ -21,18 +21,47 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, Props>(function MusicPlayer(
   ref
 ) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const startedRef = useRef(false);
   const [playing, setPlaying] = useState(false);
+  const startAt = invitation.audioStartSec ?? 0;
+
+  const seekStart = (a: HTMLAudioElement) => {
+    try {
+      a.currentTime = startAt;
+    } catch {
+      /* si aún no cargó, se reintenta en canplay */
+    }
+  };
 
   useImperativeHandle(ref, () => ({
     play() {
       const a = audioRef.current;
       if (!a) return;
       a.volume = 0.6;
+      // Arranca desde 1:06 la primera vez
+      seekStart(a);
+      startedRef.current = true;
       a.play()
         .then(() => setPlaying(true))
         .catch(() => setPlaying(false));
     },
   }));
+
+  // Loop manual desde el segundo de inicio
+  const handleEnded = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    seekStart(a);
+    a.play().catch(() => {});
+  };
+
+  // Si el audio no estaba listo al hacer play, posiciona al cargar
+  const handleCanPlay = () => {
+    const a = audioRef.current;
+    if (a && startedRef.current && a.currentTime < startAt - 1) {
+      seekStart(a);
+    }
+  };
 
   const toggle = () => {
     const a = audioRef.current;
@@ -49,7 +78,13 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, Props>(function MusicPlayer(
 
   return (
     <>
-      <audio ref={audioRef} src={invitation.audioSrc} loop preload="auto" />
+      <audio
+        ref={audioRef}
+        src={invitation.audioSrc}
+        preload="auto"
+        onEnded={handleEnded}
+        onCanPlay={handleCanPlay}
+      />
       <AnimatePresence>
         {visible && (
           <motion.button

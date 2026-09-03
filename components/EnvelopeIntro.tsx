@@ -283,21 +283,56 @@ function Seal({ initial }: { initial: string }) {
       }
       transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
     >
+      {/* Moteado de la cera (irregularidades de color) */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          borderRadius: "inherit",
+          mixBlendMode: "multiply",
+          opacity: 0.55,
+          background:
+            "radial-gradient(28% 24% at 68% 66%, rgba(120,88,26,0.55) 0%, rgba(120,88,26,0) 60%)," +
+            "radial-gradient(22% 20% at 30% 62%, rgba(120,88,26,0.4) 0%, rgba(120,88,26,0) 60%)," +
+            "radial-gradient(26% 22% at 60% 26%, rgba(255,236,196,0.5) 0%, rgba(255,236,196,0) 60%)",
+        }}
+      />
+      {/* Grano/textura de la cera */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          borderRadius: "inherit",
+          mixBlendMode: "overlay",
+          opacity: 0.5,
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.5'/%3E%3C/svg%3E\")",
+        }}
+      />
       {/* Anillo grabado exterior */}
       <div
         className="absolute rounded-full"
         style={{
-          inset: 6,
-          border: "1.5px solid rgba(120,90,20,0.4)",
-          boxShadow: "inset 0 0 4px rgba(80,58,12,0.4)",
+          inset: 5,
+          border: "1.5px solid rgba(120,90,20,0.45)",
+          boxShadow: "inset 0 0 5px rgba(80,58,12,0.45)",
         }}
       />
-      {/* Puntería de anillo interior punteado */}
+      {/* Medallón interior estampado (en relieve) */}
       <div
         className="absolute rounded-full"
         style={{
-          inset: 11,
-          border: "1px dashed rgba(255,245,220,0.5)",
+          inset: 12,
+          background:
+            "radial-gradient(circle at 38% 32%, #e3c184 0%, #c9a458 55%, #ac8636 100%)",
+          boxShadow:
+            "inset 0 2px 4px rgba(80,58,12,0.55), inset 0 -2px 3px rgba(255,240,205,0.5), 0 1px 1px rgba(255,240,205,0.35)",
+        }}
+      />
+      {/* Anillo punteado sobre el medallón */}
+      <div
+        className="absolute rounded-full"
+        style={{
+          inset: 17,
+          border: "1px dashed rgba(90,66,16,0.45)",
         }}
       />
       {/* Brillo que recorre el sello cada algunos segundos */}
@@ -319,10 +354,11 @@ function Seal({ initial }: { initial: string }) {
         />
       )}
       <span
-        className="relative font-serif text-2xl font-semibold"
+        className="relative font-serif text-[1.6rem] font-semibold"
         style={{
-          color: "#7d5f1f",
-          textShadow: "0 1px 1px rgba(255,255,255,0.35)",
+          color: "#7a5c1c",
+          textShadow:
+            "0 1px 0 rgba(255,240,205,0.5), 0 -1px 1px rgba(70,50,10,0.5)",
         }}
       >
         {initial}
