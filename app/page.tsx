@@ -4,10 +4,13 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import EnvelopeIntro from "@/components/EnvelopeIntro";
 import InvitationHero from "@/components/InvitationHero";
+import TextSection from "@/components/TextSection";
+import ImagesSection from "@/components/ImagesSection";
 import DateSection from "@/components/DateSection";
 import Countdown from "@/components/Countdown";
 import LocationSection from "@/components/LocationSection";
 import DressCodeSection from "@/components/DressCodeSection";
+import ForbiddenColorsSection from "@/components/ForbiddenColorsSection";
 import RSVPSection from "@/components/RSVPSection";
 import GiftSection from "@/components/GiftSection";
 import ClosingSection from "@/components/ClosingSection";
@@ -34,10 +37,13 @@ export default function Home() {
         style={{ pointerEvents: opened ? "auto" : "none" }}
       >
         <InvitationHero />
+        <TextSection />
+        <ImagesSection />
         <DateSection />
         <Countdown />
         <LocationSection />
         <DressCodeSection />
+        <ForbiddenColorsSection />
         <RSVPSection />
         <GiftSection />
         <ClosingSection />

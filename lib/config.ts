@@ -29,6 +29,9 @@ export const invitation = {
   // Colores reservados / prohibidos para los invitados
   forbiddenColors: "Gama de rosas, plateado y lilas",
   rsvpDeadline: "1 de octubre",
+  // Galería de imágenes. Poner las fotos en /public/images y listarlas acá.
+  // Si el array queda vacío, se muestran marcos placeholder elegantes.
+  gallery: [] as string[],
   // Alias para regalos
   gift: {
     alias: "navarretelola.mp",
