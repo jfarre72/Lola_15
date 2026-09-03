@@ -50,7 +50,7 @@ export default function InvitationHero() {
 
         <motion.h1
           variants={item}
-          className="text-gold-gradient font-serif text-7xl font-medium leading-none sm:text-8xl"
+          className="text-gold-gradient font-serif text-7xl font-medium sm:text-8xl"
         >
           {invitation.name}
         </motion.h1>
