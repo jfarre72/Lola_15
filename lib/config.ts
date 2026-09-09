@@ -46,11 +46,19 @@ export const invitation = {
     message: "Hola! Confirmo mi asistencia a los XV de Lola 💕",
   },
   audioSrc: "/audio/song.mp3",
-  // Segundo de inicio de la canción (1:06 = 66s) y loop desde ahí.
-  // +0.03s (30 ms) para saltar el pequeño tramo inicial no deseado.
-  audioStartSec: 66.03,
+  // Segundo de inicio de la canción y loop desde ahí.
+  // Se corre +1s para no escuchar el primer segundo del tramo.
+  audioStartSec: 67.03,
   // Retardo antes de que arranque la música tras abrir el sobre (ms).
   audioStartDelayMs: 2000,
+  // Imágenes provistas por el cliente (colocá los archivos en /public/images).
+  // Si el archivo no existe, se usa el diseño de respaldo hecho en código.
+  assets: {
+    // Punto 2: imagen del sobre / portada inicial.
+    portada: "/images/portada.jpg",
+    // Punto 3: imagen de fondo de la carta con la información.
+    cardBg: "/images/fondo.jpg",
+  },
   cardMessage: [
     "Me haría mucha ilusión que me acompañes",
     "a celebrar mis XV años.",

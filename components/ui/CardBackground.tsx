@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { invitation } from "@/lib/config";
 import {
   DiscoBall,
   GlitterStar,
@@ -19,6 +21,7 @@ import {
  * Se renderiza como capa fija detrás del contenido.
  */
 export default function CardBackground() {
+  const [imgOk, setImgOk] = useState(true);
   return (
     <div
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
@@ -28,6 +31,17 @@ export default function CardBackground() {
           "radial-gradient(120% 80% at 50% 0%, #fbf6f7 0%, #f4eef0 55%, #efe7eb 100%)",
       }}
     >
+      {/* Punto 3: imagen de fondo provista. Si carga, tapa el diseño de
+          respaldo hecho en código. */}
+      {imgOk && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={invitation.assets.cardBg}
+          alt=""
+          onError={() => setImgOk(false)}
+          className="absolute inset-0 z-10 h-full w-full object-cover"
+        />
+      )}
       {/* Washes rosados / plateados a los costados */}
       <div
         className="absolute inset-0"

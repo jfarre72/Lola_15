@@ -7,7 +7,7 @@ export default function DressCodeSection() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
-        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-golddark">
+        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-ink">
           Dress code
         </p>
       </Reveal>

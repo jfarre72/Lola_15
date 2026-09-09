@@ -4,7 +4,7 @@ import {
   Cormorant_Garamond,
   Montserrat,
   Great_Vibes,
-  Pacifico,
+  Dancing_Script,
 } from "next/font/google";
 import "./globals.css";
 
@@ -34,10 +34,10 @@ const greatVibes = Great_Vibes({
   display: "swap",
 });
 
-// Logo "Lola": cursiva marcador redondeada (estilo manuscrito de la imagen 1).
-const pacifico = Pacifico({
+// Logo "Lola" y título "Mis 15": cursiva manuscrita fina (no muy gruesa).
+const dancing = Dancing_Script({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["500", "600"],
   variable: "--font-logo",
   display: "swap",
 });
@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable} ${greatVibes.variable} ${pacifico.variable} font-sans bg-cream text-ink antialiased`}
+        className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable} ${greatVibes.variable} ${dancing.variable} font-sans bg-cream text-ink antialiased`}
       >
         {children}
       </body>

@@ -8,7 +8,7 @@ export default function DateSection() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
-        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-golddark">
+        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-ink">
           Guardá la fecha
         </p>
       </Reveal>
@@ -16,7 +16,7 @@ export default function DateSection() {
       <Reveal delay={0.15}>
         <div className="my-10 flex items-center justify-center gap-6 sm:gap-10">
           <div className="hairline w-12 sm:w-20" />
-          <span className="font-script text-6xl text-golddark sm:text-7xl">
+          <span className="font-script text-6xl text-ink sm:text-7xl">
             {monthName.charAt(0) + monthName.slice(1).toLowerCase()}
           </span>
           <div className="hairline w-12 sm:w-20" />
@@ -42,7 +42,7 @@ export default function DateSection() {
       </Reveal>
 
       <Reveal delay={0.7}>
-        <p className="mt-10 text-center font-cormorant text-2xl italic text-golddark">
+        <p className="mt-10 text-center font-cormorant text-2xl italic text-ink">
           Una noche para recordar
         </p>
       </Reveal>

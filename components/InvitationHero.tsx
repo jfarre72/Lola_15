@@ -42,7 +42,7 @@ export default function InvitationHero() {
       >
         <motion.p
           variants={item}
-          className="font-sans text-xs uppercase tracking-widest2 text-golddark sm:text-sm"
+          className="font-sans text-xs uppercase tracking-widest2 text-ink sm:text-sm"
         >
           {invitation.event}
         </motion.p>
@@ -63,7 +63,7 @@ export default function InvitationHero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.4, duration: 1.2 }}
       >
-        <span className="font-sans text-[0.62rem] uppercase tracking-widest2 text-golddark">
+        <span className="font-sans text-[0.62rem] uppercase tracking-widest2 text-ink">
           Deslizá para descubrir
         </span>
         <motion.svg

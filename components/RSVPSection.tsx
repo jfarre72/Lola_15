@@ -30,7 +30,7 @@ export default function RSVPSection() {
       </Reveal>
 
       <Reveal delay={0.55}>
-        <p className="mt-6 text-center font-sans text-[0.62rem] uppercase tracking-widest2 text-golddark">
+        <p className="mt-6 text-center font-sans text-[0.62rem] uppercase tracking-widest2 text-ink">
           Confirmar antes del {invitation.rsvpDeadline}
         </p>
       </Reveal>

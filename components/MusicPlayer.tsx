@@ -1,6 +1,12 @@
 "use client";
 
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { invitation } from "@/lib/config";
 
@@ -82,6 +88,27 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, Props>(function MusicPlayer(
       seekStart(a);
     }
   };
+
+  // Punto 6: al cerrar / abandonar / ocultar la página, se corta la música.
+  useEffect(() => {
+    const stop = () => {
+      const a = audioRef.current;
+      if (!a) return;
+      a.pause();
+      setPlaying(false);
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") stop();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", stop);
+    window.addEventListener("beforeunload", stop);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", stop);
+      window.removeEventListener("beforeunload", stop);
+    };
+  }, []);
 
   const toggle = () => {
     const a = audioRef.current;
