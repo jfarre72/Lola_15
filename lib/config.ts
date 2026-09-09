@@ -32,9 +32,9 @@ export const invitation = {
   // Galería de imágenes. Poner las fotos en /public/images y listarlas acá.
   // Si el array queda vacío, se muestran marcos placeholder elegantes.
   gallery: [
-    "/images/recuerdo1.jpg",
-    "/images/recuerdo2.jpg",
-    "/images/recuerdo3.jpg",
+    "/images/lola%204.jpeg",
+    "/images/lola%205.jpeg",
+    "/images/lola%206.jpeg",
   ] as string[],
   // Alias para regalos
   gift: {
@@ -51,15 +51,6 @@ export const invitation = {
   audioStartSec: 66.03,
   // Retardo antes de que arranque la música tras abrir el sobre (ms).
   audioStartDelayMs: 2000,
-  // Rutas de assets de imagen (colocá los archivos en /public/images).
-  assets: {
-    // Imagen 1: logo "Lola" (reemplaza el texto en toda la invitación).
-    logo: "/images/lola-logo.png",
-    // Imagen 2: portada "Mis 15" con el sobre (pantalla inicial).
-    heroInvite: "/images/hero-invite.png",
-    // Imagen 3: fondo rosa vertical para la carta con la información.
-    cardBg: "/images/card-bg.png",
-  },
   cardMessage: [
     "Me haría mucha ilusión que me acompañes",
     "a celebrar mis XV años.",

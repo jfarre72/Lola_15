@@ -23,7 +23,7 @@ export default function TextSection() {
 
       <Reveal delay={0.35}>
         <div className="mt-10 text-center">
-          <LolaLogo height="clamp(2.5rem, 12vw, 4rem)" />
+          <LolaLogo size="clamp(2.5rem, 12vw, 4rem)" />
         </div>
       </Reveal>
     </section>

@@ -3,24 +3,29 @@
 import { invitation } from "@/lib/config";
 
 type Props = {
-  /** Alto del logo (ej: "3.5rem", 64). Ancho automático manteniendo proporción. */
-  height?: string | number;
+  /** Tamaño de la tipografía (ej: "clamp(3rem,14vw,6rem)"). */
+  size?: string | number;
+  /** Color del texto. Por defecto negro tinta (como la imagen 1). */
+  color?: string;
   className?: string;
 };
 
 /**
- * Logo "Lola" (imagen 1). Reemplaza el texto por la imagen del nombre.
- * Colocá el archivo en public/images/lola-logo.png (ver invitation.assets.logo).
+ * Logo "Lola" (recreación en código de la imagen 1): tipografía manuscrita
+ * redondeada (Pacifico) en negro. No depende de ningún archivo de imagen.
  */
-export default function LolaLogo({ height = "3.5rem", className = "" }: Props) {
+export default function LolaLogo({
+  size = "clamp(3rem, 14vw, 6rem)",
+  color = "#1a1a1a",
+  className = "",
+}: Props) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={invitation.assets.logo}
-      alt={invitation.name}
-      className={`inline-block w-auto select-none ${className}`}
-      style={{ height }}
-      draggable={false}
-    />
+    <span
+      className={`font-logo inline-block select-none leading-[1.1] ${className}`}
+      style={{ fontSize: size, color }}
+      aria-label={invitation.name}
+    >
+      {invitation.name}
+    </span>
   );
 }

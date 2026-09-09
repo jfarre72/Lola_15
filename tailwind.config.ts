@@ -19,6 +19,7 @@ const config: Config = {
         cormorant: ["var(--font-cormorant)", "Cormorant Garamond", "serif"],
         sans: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
         script: ["var(--font-script)", "cursive"],
+        logo: ["var(--font-logo)", "cursive"],
       },
       letterSpacing: {
         widest2: "0.35em",

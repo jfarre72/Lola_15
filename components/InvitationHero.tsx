@@ -50,7 +50,7 @@ export default function InvitationHero() {
         <motion.div variants={item} className="mx-auto my-6 h-px w-14 bg-gold/60" />
 
         <motion.div variants={item}>
-          <LolaLogo height="clamp(4.5rem, 20vw, 8rem)" />
+          <LolaLogo size="clamp(4.5rem, 20vw, 8rem)" />
         </motion.div>
 
         <motion.div variants={item} className="mx-auto mt-8 h-px w-14 bg-gold/60" />

@@ -19,7 +19,7 @@ export default function ClosingSection() {
 
       <Reveal>
         <div className="text-center">
-          <LolaLogo height="clamp(4rem, 18vw, 7rem)" />
+          <LolaLogo size="clamp(4rem, 18vw, 7rem)" />
         </div>
       </Reveal>
 

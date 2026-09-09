@@ -1,21 +1,20 @@
-# Archivos de imagen requeridos por el diseño
+# Diseño recreado en código (sin archivos)
 
-Colocá estos 3 archivos con estos nombres exactos para que la invitación
-muestre las imágenes provistas por el cliente:
+El logo "Lola", la portada "Mis 15" con el sobre y el fondo decorativo de la
+carta están recreados en código (CSS/SVG), no dependen de archivos de imagen:
 
-| Archivo | Qué es | Dónde se usa |
-| --- | --- | --- |
-| `lola-logo.png` | Logo "Lola" (imagen 1) | Reemplaza el texto "Lola" en toda la invitación |
-| `hero-invite.png` | Portada "Mis 15" con el sobre (imagen 2) | Pantalla inicial; se toca para abrir |
-| `card-bg.png` | Fondo rosa vertical (imagen 3) | Fondo de la carta con toda la información |
-
-- `lola-logo.png`: idealmente PNG con fondo transparente.
-- `hero-invite.png`: preferible en orientación vertical (celular).
-- Las rutas se configuran en `lib/config.ts` → `invitation.assets`.
+- Logo: `components/ui/LolaLogo.tsx` (tipografía Pacifico).
+- Portada: `components/EnvelopeIntro.tsx`.
+- Fondo de la carta y decoraciones: `components/ui/CardBackground.tsx` y
+  `components/ui/Decorations.tsx`.
 
 ---
 
-# Fotos de la galería
+# Fotos de la galería (RECUERDOS)
+
+Las fotos de la sección "Recuerdos" se listan en `lib/config.ts` → `gallery`.
+Actualmente apuntan a `lola 4.jpeg`, `lola 5.jpeg` y `lola 6.jpeg`
+(los espacios se escriben como `%20` en la ruta).
 
 Subí acá las fotos de Lola (por ejemplo `foto1.jpg`, `foto2.jpg`, `foto3.jpg`).
 
