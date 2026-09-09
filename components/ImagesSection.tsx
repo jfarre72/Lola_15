@@ -13,7 +13,7 @@ export default function ImagesSection() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
-        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-golddark">
+        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-ink">
           Recuerdos
         </p>
       </Reveal>
@@ -22,9 +22,10 @@ export default function ImagesSection() {
         {slots.map((src, i) => (
           <Reveal key={i} delay={0.12 * i} y={36}>
             <motion.div
-              className="relative mx-auto w-full overflow-hidden rounded-[4px]"
+              className="relative mx-auto w-full overflow-hidden rounded-[4px] bg-white"
               style={{
-                aspectRatio: i === 0 ? "4 / 5" : "3 / 2",
+                // Sin recorte: si hay foto, el alto se adapta a la imagen.
+                aspectRatio: src ? undefined : i === 0 ? "4 / 5" : "3 / 2",
                 border: "1px solid rgba(184,148,69,0.4)",
                 boxShadow: "0 18px 40px -22px rgba(90,70,40,0.45)",
               }}
@@ -41,7 +42,7 @@ export default function ImagesSection() {
                 <img
                   src={src}
                   alt=""
-                  className="h-full w-full object-cover"
+                  className="block h-auto w-full"
                   loading="lazy"
                 />
               ) : (
@@ -58,7 +59,7 @@ export default function ImagesSection() {
                       <circle cx="20" cy="21" r="6" stroke="#B89445" strokeWidth="1.2" />
                       <path d="M14 9l2-3h8l2 3" stroke="#B89445" strokeWidth="1.2" />
                     </svg>
-                    <span className="font-sans text-[0.6rem] uppercase tracking-widest2 text-golddark">
+                    <span className="font-sans text-[0.6rem] uppercase tracking-widest2 text-ink">
                       Tu foto aquí
                     </span>
                   </div>

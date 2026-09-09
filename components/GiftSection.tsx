@@ -22,7 +22,7 @@ export default function GiftSection() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
-        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-golddark">
+        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-ink">
           Tu presencia es mi regalo
         </p>
       </Reveal>
@@ -62,7 +62,7 @@ export default function GiftSection() {
           <span className="font-sans text-sm tracking-[0.2em] text-ink">
             {invitation.gift.alias}
           </span>
-          <span className="font-sans text-[0.6rem] uppercase tracking-widest2 text-golddark">
+          <span className="font-sans text-[0.6rem] uppercase tracking-widest2 text-ink">
             {copied ? "¡Copiado!" : "Copiar"}
           </span>
         </button>

@@ -39,7 +39,7 @@ export default function Countdown() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
-        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-golddark">
+        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-ink">
           Faltan
         </p>
       </Reveal>
@@ -57,7 +57,7 @@ export default function Countdown() {
                 </span>
               </div>
               {i < units.length - 1 && (
-                <span className="font-serif text-3xl text-gold/50 sm:text-5xl">
+                <span className="font-serif text-3xl text-ink/40 sm:text-5xl">
                   :
                 </span>
               )}

@@ -9,7 +9,7 @@ export default function LocationSection() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6 py-24">
       <Reveal>
-        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-golddark">
+        <p className="text-center font-sans text-xs uppercase tracking-widest2 text-ink">
           ¿Dónde?
         </p>
       </Reveal>
@@ -49,7 +49,7 @@ export default function LocationSection() {
           href={mapsUrl()}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-block border border-gold px-9 py-3 font-sans text-xs uppercase tracking-widest2 text-golddark transition-colors duration-500 hover:bg-gold hover:text-white"
+          className="mt-10 inline-block border border-gold px-9 py-3 font-sans text-xs uppercase tracking-widest2 text-ink transition-colors duration-500 hover:bg-gold hover:text-white"
         >
           Cómo llegar
         </a>

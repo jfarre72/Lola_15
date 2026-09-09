@@ -26,6 +26,8 @@ export default function EnvelopeIntro({ onOpen }: Props) {
   const [stage, setStage] = useState<"closed" | "opening" | "leaving">(
     "closed"
   );
+  // Si la imagen provista carga, se usa esa; si no, el diseño de respaldo.
+  const [imgOk, setImgOk] = useState(true);
 
   const handleSeal = () => {
     if (stage !== "closed") return;
@@ -39,14 +41,34 @@ export default function EnvelopeIntro({ onOpen }: Props) {
       {stage !== "leaving" && (
         <motion.div
           key="envelope-scene"
+          onClick={imgOk ? handleSeal : undefined}
+          role={imgOk ? "button" : undefined}
+          aria-label={imgOk ? "Tocá el sello para abrir la invitación" : undefined}
           className="fixed inset-0 z-40 flex flex-col items-center justify-center overflow-hidden"
           style={{
+            cursor: imgOk && stage === "closed" ? "pointer" : "default",
             background:
               "radial-gradient(120% 90% at 50% 12%, #fbf6f7 0%, #f3edef 55%, #ede5e9 100%)",
           }}
           exit={{ opacity: 0, scale: 1.08, filter: "blur(5px)" }}
           transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
         >
+          {/* Punto 2: imagen de portada provista (si carga, tapa el diseño de
+              respaldo). Toda la pantalla es sensible al toque para abrir. */}
+          {imgOk && (
+            <motion.img
+              src={invitation.assets.portada}
+              alt="Mis 15 — Tocá el sello para abrir"
+              onError={() => setImgOk(false)}
+              className="absolute inset-0 z-20 h-full w-full select-none object-contain"
+              draggable={false}
+              animate={{ scale: stage === "opening" ? 1.05 : 1 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            />
+          )}
+
+          {!imgOk && (
+          <>
           {/* Washes de color en las esquinas */}
           <div
             className="pointer-events-none absolute inset-0"
@@ -140,6 +162,8 @@ export default function EnvelopeIntro({ onOpen }: Props) {
               <span className="h-px w-6 bg-[#e79bbf]" />
             </motion.div>
           </motion.div>
+          </>
+          )}
         </motion.div>
       )}
     </AnimatePresence>

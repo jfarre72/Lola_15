@@ -24,7 +24,7 @@ export default function ClosingSection() {
       </Reveal>
 
       <Reveal delay={0.2}>
-        <p className="mt-6 text-center font-sans text-sm uppercase tracking-widest2 text-golddark">
+        <p className="mt-6 text-center font-sans text-sm uppercase tracking-widest2 text-ink">
           {invitation.event}
         </p>
       </Reveal>
@@ -40,7 +40,7 @@ export default function ClosingSection() {
       </Reveal>
 
       <Reveal delay={0.7}>
-        <p className="mt-10 text-center font-cormorant text-3xl italic text-golddark">
+        <p className="mt-10 text-center font-cormorant text-3xl italic text-ink">
           Te espero
         </p>
       </Reveal>

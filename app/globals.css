@@ -65,11 +65,10 @@ body {
   scrollbar-color: rgba(212, 175, 103, 0.4) transparent;
 }
 
+/* Antes dorado; ahora negro (los títulos y números de la carta van en negro). */
 .text-gold-gradient {
-  background: linear-gradient(120deg, #e6c68f 0%, #d4af67 40%, #b89445 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #171717;
+  -webkit-text-fill-color: #171717;
   /* Da aire arriba y abajo para no cortar colas (g, y, j) ni los remates
      de las tipografías script (flourishes de la L, etc.) */
   display: inline-block;
