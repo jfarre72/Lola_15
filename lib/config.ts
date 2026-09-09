@@ -57,7 +57,7 @@ export const invitation = {
     // Portada del sobre inicial en notebook / pantallas anchas.
     portada: "/images/portada.jpg",
     // Portada específica para celular (pantallas angostas).
-    portadaCelular: "/images/portada_celular.png",
+    portadaCelular: "/images/portada_celular.jpg",
     // Fondo de la carta con la información.
     cardBg: "/images/fondo.jpg",
   },
