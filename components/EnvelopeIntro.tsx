@@ -56,15 +56,28 @@ export default function EnvelopeIntro({ onOpen }: Props) {
           {/* Punto 2: imagen de portada provista (si carga, tapa el diseño de
               respaldo). Toda la pantalla es sensible al toque para abrir. */}
           {imgOk && (
-            <motion.img
-              src={invitation.assets.portada}
-              alt="Mis 15 — Tocá el sello para abrir"
-              onError={() => setImgOk(false)}
-              className="absolute inset-0 z-20 h-full w-full select-none object-contain"
-              draggable={false}
+            <motion.div
+              className="absolute inset-0 z-20"
               animate={{ scale: stage === "opening" ? 1.05 : 1 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            />
+            >
+              <picture className="block h-full w-full">
+                {/* Notebook / pantallas anchas: portada apaisada (completa) */}
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={invitation.assets.portada}
+                />
+                {/* Celular: portada vertical (llena la pantalla) */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={invitation.assets.portadaCelular}
+                  alt="Mis 15 — Tocá el sello para abrir"
+                  onError={() => setImgOk(false)}
+                  className="h-full w-full select-none object-cover md:object-contain"
+                  draggable={false}
+                />
+              </picture>
+            </motion.div>
           )}
 
           {!imgOk && (

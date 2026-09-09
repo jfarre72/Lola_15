@@ -21,8 +21,16 @@ export default function LolaLogo({
 }: Props) {
   return (
     <span
-      className={`font-logo inline-block select-none leading-[1.1] ${className}`}
-      style={{ fontSize: size, color }}
+      className={`font-logo inline-block select-none overflow-visible ${className}`}
+      style={{
+        fontSize: size,
+        color,
+        // Aire para que la cursiva (la cola de la "L") no se recorte.
+        lineHeight: 1.3,
+        paddingLeft: "0.18em",
+        paddingRight: "0.12em",
+        paddingBottom: "0.1em",
+      }}
       aria-label={invitation.name}
     >
       {invitation.name}

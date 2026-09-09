@@ -49,7 +49,7 @@ export default function GiftSection() {
 
       <Reveal delay={0.3}>
         <p className="mt-6 max-w-sm text-center font-cormorant text-2xl italic leading-relaxed text-ink/70">
-          Si querés hacerme un regalo, podés colaborar con este alias
+          Pero si deseás hacerme un obsequio, podés hacerlo en este alias:
         </p>
       </Reveal>
 

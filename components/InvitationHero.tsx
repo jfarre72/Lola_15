@@ -63,7 +63,7 @@ export default function InvitationHero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2.4, duration: 1.2 }}
       >
-        <span className="font-sans text-[0.62rem] uppercase tracking-widest2 text-ink">
+        <span className="pl-[0.35em] font-sans text-[0.62rem] uppercase tracking-widest2 text-ink">
           Deslizá para descubrir
         </span>
         <motion.svg
