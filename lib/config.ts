@@ -32,9 +32,9 @@ export const invitation = {
   // Galería de imágenes. Poner las fotos en /public/images y listarlas acá.
   // Si el array queda vacío, se muestran marcos placeholder elegantes.
   gallery: [
-    "/images/recuerdo1.jpg",
-    "/images/recuerdo2.jpg",
-    "/images/recuerdo3.jpg",
+    "/images/lola%204.jpeg",
+    "/images/lola%205.jpeg",
+    "/images/lola%206.jpeg",
   ] as string[],
   // Alias para regalos
   gift: {
@@ -47,7 +47,10 @@ export const invitation = {
   },
   audioSrc: "/audio/song.mp3",
   // Segundo de inicio de la canción (1:06 = 66s) y loop desde ahí.
-  audioStartSec: 66,
+  // +0.03s (30 ms) para saltar el pequeño tramo inicial no deseado.
+  audioStartSec: 66.03,
+  // Retardo antes de que arranque la música tras abrir el sobre (ms).
+  audioStartDelayMs: 2000,
   cardMessage: [
     "Me haría mucha ilusión que me acompañes",
     "a celebrar mis XV años.",

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Sparkles from "./ui/Sparkles";
+import LolaLogo from "./ui/LolaLogo";
 import { invitation } from "@/lib/config";
 
 export default function InvitationHero() {
@@ -48,12 +49,9 @@ export default function InvitationHero() {
 
         <motion.div variants={item} className="mx-auto my-6 h-px w-14 bg-gold/60" />
 
-        <motion.h1
-          variants={item}
-          className="text-gold-gradient font-serif text-7xl font-medium sm:text-8xl"
-        >
-          {invitation.name}
-        </motion.h1>
+        <motion.div variants={item}>
+          <LolaLogo size="clamp(4.5rem, 20vw, 8rem)" />
+        </motion.div>
 
         <motion.div variants={item} className="mx-auto mt-8 h-px w-14 bg-gold/60" />
       </motion.div>

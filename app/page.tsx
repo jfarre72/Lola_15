@@ -15,6 +15,7 @@ import RSVPSection from "@/components/RSVPSection";
 import GiftSection from "@/components/GiftSection";
 import ClosingSection from "@/components/ClosingSection";
 import MusicPlayer, { MusicPlayerHandle } from "@/components/MusicPlayer";
+import CardBackground from "@/components/ui/CardBackground";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
@@ -36,6 +37,9 @@ export default function Home() {
         transition={{ duration: 1.2, delay: 0.4 }}
         style={{ pointerEvents: opened ? "auto" : "none" }}
       >
+        {/* Imagen 3 recreada en código: fondo decorativo de la carta */}
+        <CardBackground />
+
         <InvitationHero />
         <TextSection />
         <ImagesSection />
