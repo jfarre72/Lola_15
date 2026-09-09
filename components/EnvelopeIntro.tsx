@@ -60,13 +60,15 @@ export default function EnvelopeIntro({ onOpen }: Props) {
               src={invitation.assets.portada}
               alt="Mis 15 — Tocá el sello para abrir"
               onError={() => setImgOk(false)}
-              className="absolute inset-0 z-20 h-full w-full select-none object-cover"
+              className="absolute inset-0 z-20 h-full w-full select-none object-contain"
               draggable={false}
               animate={{ scale: stage === "opening" ? 1.05 : 1 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             />
           )}
 
+          {!imgOk && (
+          <>
           {/* Washes de color en las esquinas */}
           <div
             className="pointer-events-none absolute inset-0"
@@ -160,6 +162,8 @@ export default function EnvelopeIntro({ onOpen }: Props) {
               <span className="h-px w-6 bg-[#e79bbf]" />
             </motion.div>
           </motion.div>
+          </>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
