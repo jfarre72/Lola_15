@@ -24,6 +24,7 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, Props>(function MusicPlayer(
   const startedRef = useRef(false);
   const [playing, setPlaying] = useState(false);
   const startAt = invitation.audioStartSec ?? 0;
+  const startDelay = invitation.audioStartDelayMs ?? 0;
 
   const seekStart = (a: HTMLAudioElement) => {
     try {
@@ -33,17 +34,36 @@ const MusicPlayer = forwardRef<MusicPlayerHandle, Props>(function MusicPlayer(
     }
   };
 
+  const beginPlayback = (a: HTMLAudioElement) => {
+    a.volume = 0.6;
+    seekStart(a);
+    startedRef.current = true;
+    a.play()
+      .then(() => setPlaying(true))
+      .catch(() => setPlaying(false));
+  };
+
   useImperativeHandle(ref, () => ({
     play() {
       const a = audioRef.current;
       if (!a) return;
-      a.volume = 0.6;
-      // Arranca desde 1:06 la primera vez
-      seekStart(a);
-      startedRef.current = true;
+      // Desbloqueo del audio dentro del gesto del usuario (iOS/Safari):
+      // se reproduce y pausa al instante para "habilitar" el elemento,
+      // y luego, tras el retardo, arranca de verdad cuando ya se ve la carta.
+      a.muted = true;
       a.play()
-        .then(() => setPlaying(true))
-        .catch(() => setPlaying(false));
+        .then(() => {
+          a.pause();
+          a.muted = false;
+        })
+        .catch(() => {
+          a.muted = false;
+        });
+
+      window.setTimeout(() => {
+        const el = audioRef.current;
+        if (el) beginPlayback(el);
+      }, startDelay);
     },
   }));
 

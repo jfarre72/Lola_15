@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./ui/Reveal";
+import LolaLogo from "./ui/LolaLogo";
 import { invitation } from "@/lib/config";
 
 export default function TextSection() {
@@ -21,9 +22,9 @@ export default function TextSection() {
       </Reveal>
 
       <Reveal delay={0.35}>
-        <p className="mt-10 text-center font-script text-4xl text-golddark">
-          {invitation.nick}
-        </p>
+        <div className="mt-10 text-center">
+          <LolaLogo height="clamp(2.5rem, 12vw, 4rem)" />
+        </div>
       </Reveal>
     </section>
   );

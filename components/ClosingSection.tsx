@@ -2,6 +2,7 @@
 
 import Reveal from "./ui/Reveal";
 import Sparkles from "./ui/Sparkles";
+import LolaLogo from "./ui/LolaLogo";
 import { invitation } from "@/lib/config";
 
 export default function ClosingSection() {
@@ -17,9 +18,9 @@ export default function ClosingSection() {
       <Sparkles count={20} />
 
       <Reveal>
-        <p className="text-gold-gradient text-center font-script text-7xl sm:text-8xl">
-          {invitation.nick}
-        </p>
+        <div className="text-center">
+          <LolaLogo height="clamp(4rem, 18vw, 7rem)" />
+        </div>
       </Reveal>
 
       <Reveal delay={0.2}>

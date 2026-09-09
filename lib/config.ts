@@ -47,7 +47,19 @@ export const invitation = {
   },
   audioSrc: "/audio/song.mp3",
   // Segundo de inicio de la canción (1:06 = 66s) y loop desde ahí.
-  audioStartSec: 66,
+  // +0.03s (30 ms) para saltar el pequeño tramo inicial no deseado.
+  audioStartSec: 66.03,
+  // Retardo antes de que arranque la música tras abrir el sobre (ms).
+  audioStartDelayMs: 2000,
+  // Rutas de assets de imagen (colocá los archivos en /public/images).
+  assets: {
+    // Imagen 1: logo "Lola" (reemplaza el texto en toda la invitación).
+    logo: "/images/lola-logo.png",
+    // Imagen 2: portada "Mis 15" con el sobre (pantalla inicial).
+    heroInvite: "/images/hero-invite.png",
+    // Imagen 3: fondo rosa vertical para la carta con la información.
+    cardBg: "/images/card-bg.png",
+  },
   cardMessage: [
     "Me haría mucha ilusión que me acompañes",
     "a celebrar mis XV años.",

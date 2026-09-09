@@ -15,6 +15,7 @@ import RSVPSection from "@/components/RSVPSection";
 import GiftSection from "@/components/GiftSection";
 import ClosingSection from "@/components/ClosingSection";
 import MusicPlayer, { MusicPlayerHandle } from "@/components/MusicPlayer";
+import { invitation } from "@/lib/config";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
@@ -34,7 +35,15 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: opened ? 1 : 0 }}
         transition={{ duration: 1.2, delay: 0.4 }}
-        style={{ pointerEvents: opened ? "auto" : "none" }}
+        style={{
+          pointerEvents: opened ? "auto" : "none",
+          // Imagen 3: fondo de la carta con toda la información.
+          backgroundImage: `url(${invitation.assets.cardBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "top center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+        }}
       >
         <InvitationHero />
         <TextSection />
