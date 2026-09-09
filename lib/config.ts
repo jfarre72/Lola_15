@@ -32,9 +32,9 @@ export const invitation = {
   // Galería de imágenes. Poner las fotos en /public/images y listarlas acá.
   // Si el array queda vacío, se muestran marcos placeholder elegantes.
   gallery: [
-    "/images/lola%204.jpeg",
-    "/images/lola%205.jpeg",
     "/images/lola%206.jpeg",
+    "/images/lola%205.jpeg",
+    "/images/lola%204.jpeg",
   ] as string[],
   // Alias para regalos
   gift: {
@@ -54,9 +54,11 @@ export const invitation = {
   // Imágenes provistas por el cliente (colocá los archivos en /public/images).
   // Si el archivo no existe, se usa el diseño de respaldo hecho en código.
   assets: {
-    // Punto 2: imagen del sobre / portada inicial.
+    // Portada del sobre inicial en notebook / pantallas anchas.
     portada: "/images/portada.jpg",
-    // Punto 3: imagen de fondo de la carta con la información.
+    // Portada específica para celular (pantallas angostas).
+    portadaCelular: "/images/portada_celular.png",
+    // Fondo de la carta con la información.
     cardBg: "/images/fondo.jpg",
   },
   cardMessage: [
